@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
+import axios from 'axios';
 
 const app = express();
 const port = 3001;
@@ -10,9 +11,13 @@ app.use(cors());
 app.get('/api/games', async (req, res) => {
     const apiUrl = 'https://www.freetogame.com/api/games';
 
-    // Fetch 
     try {
-        const response = await fetch(apiUrl);
+        // Fetch 
+        // const response = await fetch(apiUrl);
+
+        // Axios
+        const response = await axios.get(apiUrl);
+
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
