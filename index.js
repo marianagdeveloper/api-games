@@ -10,6 +10,7 @@ app.use(cors());
 app.get('/api/games', async (req, res) => {
     const apiUrl = 'https://www.freetogame.com/api/games';
 
+    // Fetch 
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
